@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Animated page background */
+@keyframes bgGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  background-color: #eff6ff;
+  background: linear-gradient(135deg, #eff6ff, #f0f9ff, #ecfeff, #eef2ff, #eff6ff);
+  background-size: 300% 300%;
+  animation: bgGradient 12s ease infinite;
+}
+
+html.dark {
+  overscroll-behavior: none;
+  background-color: #0a0f1e;
+  background: linear-gradient(135deg, #0a0f1e, #0c1928, #080e1c, #0d0b1e, #0a0f1e);
+  background-size: 300% 300%;
+  animation: bgGradient 12s ease infinite;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+/* Floating orb animations */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px)   translateX(0px)   scale(1);    }
+  25%       { transform: translateY(-50px) translateX(30px)  scale(1.08); }
+  50%       { transform: translateY(-20px) translateX(-40px) scale(0.94); }
+  75%       { transform: translateY(40px)  translateX(15px)  scale(1.04); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px)  translateX(0px)   scale(1);    }
+  33%       { transform: translateY(60px) translateX(-50px) scale(1.1);  }
+  66%       { transform: translateY(-40px) translateX(35px) scale(0.92); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px)   translateX(0px)  scale(1);    }
+  40%       { transform: translateY(-70px) translateX(50px) scale(1.12); }
+  80%       { transform: translateY(30px)  translateX(-25px) scale(0.96); }
+}
+@keyframes floatD {
+  0%, 100% { transform: translateY(0px)  translateX(0px)   scale(1);    }
+  50%       { transform: translateY(45px) translateX(-60px) scale(1.06); }
+}
+
+.animate-floatA { animation: floatA 18s ease-in-out infinite; }
+.animate-floatB { animation: floatB 22s ease-in-out infinite; }
+.animate-floatC { animation: floatC 16s ease-in-out infinite; }
+.animate-floatD { animation: floatD 24s ease-in-out infinite; }
